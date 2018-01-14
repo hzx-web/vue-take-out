@@ -47,26 +47,6 @@
         }
       }
     },
-    data() {
-      return {
-        selectedType: this.selectType,
-        onlyContents: this.onlyContent
-      }
-    },
-    watch: {
-      selectType(val) {
-        this.selectedType = val
-      },
-      selectedType(val) {
-        this.$emit('ratingtypeSelect', val)
-      },
-      onlyContent(val) {
-        this.onlyContents = val
-      },
-      onlyContents(val) {
-        this.$emit('contentToggle', val)
-      }
-    },
     computed: {
       positives() {
         return this.ratings.filter((rating) => {
@@ -84,13 +64,13 @@
         if (!event._constructed) {
           return
         }
-        this.selectedType = type
+        this.$emit('ratingtypeSelect', type)
       },
       toggleContent(event) {
         if (!event._constructed) {
           return
         }
-        this.onlyContents = !this.onlyContents
+        this.$emit('contentToggle')
       }
     }
   }

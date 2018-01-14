@@ -126,8 +126,8 @@
           this.scroll.refresh()
         })
       },
-      contentToggle(onlyContent) {
-        this.onlyContent = onlyContent
+      contentToggle() {
+        this.onlyContents = !this.onlyContents
         this.$nextTick(() => {
           this.scroll.refresh()
         })
