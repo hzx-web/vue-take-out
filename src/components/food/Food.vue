@@ -161,7 +161,7 @@
     &.move-enter-active, &.move-leave-active
       transition: all 0.2s linear
       transform: translate3d(0, 0, 0)
-    &.move-enter, &.move-leave-to
+    &.move-enter, &.move-leave-active
       transform: translate3d(100%, 0, 0)
     .image-header
       position: relative
@@ -234,7 +234,7 @@
         &.fade-enter-active, &.fade-leave-active
           transition: all 0.2s
           opacity: 1
-        &.fade-enter, &.fade-leave-to
+        &.fade-enter, &.fade-leave-active
           opacity: 0
     .info
       padding: 18px

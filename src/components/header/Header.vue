@@ -132,7 +132,6 @@
             font-size: 16px
             line-height: 18px
             font-weight: bold
-
         .description
           margin-bottom: 10px
           line-height: 12px
@@ -159,7 +158,6 @@
           .text
             line-height: 12px
             font-size: 10px
-
       .support-count
         position: absolute
         right: 12px
@@ -177,7 +175,6 @@
           margin-left: 2px
           line-height: 24px
           font-size: 10px
-
     .bulletin-wrapper
       position: relative
       height: 28px
@@ -205,7 +202,6 @@
         font-size: 10px
         right: 12px
         top: 8px
-
     .background
       position: absolute
       top: 0
@@ -223,81 +219,83 @@
       height: 100%
       overflow: auto
       backdrop-filter: blur(10px)
+      opacity: 1
       background: rgba(7, 17, 27, 0.8)
-    &.fade-enter-active, &.fade-leave-active
-      transition: all 0.5s
-    &.fade-enter, &.fade-leave-to
-      opacity: 0
-    .detail-wrapper
-      width: 100%
-      min-height: 100%
-      .detail-main
-        margin-top: 64px
-        padding-bottom: 64px
-        .name
-          line-height: 16px
-          text-align: center
-          font-size: 16px
-          font-weight: 700
-        .star-wrapper
-          margin-top: 18px
-          padding: 2px 0
-          text-align: center
-        .title
-          display: flex
-          width: 80%
-          margin: 28px auto 24px auto
-          .line
-            flex: 1
-            position: relative
-            top: -6px
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2)
-          .text
-            padding: 0 12px
+      &.fade-enter-active, &.fade-leave-active
+        transition: all 0.5s
+      &.fade-enter, &.fade-leave-to
+        opacity: 0
+        background: rgba(7, 17, 27, 0)
+      .detail-wrapper
+        width: 100%
+        min-height: 100%
+        .detail-main
+          margin-top: 64px
+          padding-bottom: 64px
+          .name
+            line-height: 16px
+            text-align: center
+            font-size: 16px
             font-weight: 700
-            font-size: 14px
-        .supports
-          width: 80%
-          margin: 0 auto
-          .support-item
-            padding: 0 12px
-            margin-bottom: 12px
-            font-size: 0
-            &:last-child
-              margin-bottom: 0
-            .icon
-              display: inline-block
-              width: 16px
-              height: 16px
-              vertical-align: top
-              margin-right: 6px
-              background-size: 16px 16px
-              background-repeat: no-repeat
-              &.decrease
-                bg-image('decrease_2')
-              &.discount
-                bg-image('discount_2')
-              &.guarantee
-                bg-image('guarantee_2')
-              &.invoice
-                bg-image('invoice_2')
-              &.special
-                bg-image('special_2')
+          .star-wrapper
+            margin-top: 18px
+            padding: 2px 0
+            text-align: center
+          .title
+            display: flex
+            width: 80%
+            margin: 28px auto 24px auto
+            .line
+              flex: 1
+              position: relative
+              top: -6px
+              border-bottom: 1px solid rgba(255, 255, 255, 0.2)
             .text
-              line-height: 16px
+              padding: 0 12px
+              font-weight: 700
+              font-size: 14px
+          .supports
+            width: 80%
+            margin: 0 auto
+            .support-item
+              padding: 0 12px
+              margin-bottom: 12px
+              font-size: 0
+              &:last-child
+                margin-bottom: 0
+              .icon
+                display: inline-block
+                width: 16px
+                height: 16px
+                vertical-align: top
+                margin-right: 6px
+                background-size: 16px 16px
+                background-repeat: no-repeat
+                &.decrease
+                  bg-image('decrease_2')
+                &.discount
+                  bg-image('discount_2')
+                &.guarantee
+                  bg-image('guarantee_2')
+                &.invoice
+                  bg-image('invoice_2')
+                &.special
+                  bg-image('special_2')
+              .text
+                line-height: 16px
+                font-size: 12px
+          .bulletin
+            width: 80%
+            margin: 0 auto
+            .content
+              padding: 0 12px
+              line-height: 24px
               font-size: 12px
-        .bulletin
-          width: 80%
-          margin: 0 auto
-          .content
-            padding: 0 12px
-            line-height: 24px
-            font-size: 12px
-    .detail-close
-      position: relative
-      width: 32px
-      height: 32px
-      margin: -64px auto 0 auto
-      clear: both
-      font-size: 32px
+      .detail-close
+        position: relative
+        width: 32px
+        height: 32px
+        margin: -64px auto 0 auto
+        clear: both
+        font-size: 32px
 </style>

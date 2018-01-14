@@ -21,11 +21,14 @@
         </div>
       </div>
       <div class="ball-container">
-        <transition-group name="drop" tag="div">
-          <div v-for="(ball, index) in balls" v-show="ball.show" class="ball" v-bind:key="index">
-            <div class="inner inner-hook"></div>
+          <div v-for="(ball, index) in balls">
+            <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">
+              <div v-show="ball.show" class="ball" >
+                <div class="inner inner-hook"></div>
+              </div>
+            </transition>
+
           </div>
-        </transition-group>
       </div>
       <transition name="fold">
         <div class="shopcart-list" v-show="listShow">
@@ -84,18 +87,6 @@
     data() {
       return {
         balls: [
-          {
-            show: false
-          },
-          {
-            show: false
-          },
-          {
-            show: false
-          },
-          {
-            show: false
-          },
           {
             show: false
           }
@@ -188,7 +179,7 @@
         }
         window.alert(`支付${this.totalPrice}元`)
       },
-      beforeEnter(el) {
+      beforeDrop(el) {
         let count = this.balls.length
         while (count--) {
           let ball = this.balls[count]
@@ -205,7 +196,7 @@
           }
         }
       },
-      enter(el) {
+      dropping(el, done) {
         /* eslint-disable no-unused-vars */
         let rf = el.offsetHeight
         this.$nextTick(() => {
@@ -214,9 +205,10 @@
           let inner = el.getElementsByClassName('inner-hook')[0]
           inner.style.webkitTransform = 'translate3d(0,0,0)'
           inner.style.transform = 'translate3d(0,0,0)'
+          el.addEventListener('transitionend', done)
         })
       },
-      afterEnter(el) {
+      afterDrop(el) {
         let ball = this.dropBalls.shift()
         if (ball) {
           ball.show = false
@@ -325,8 +317,7 @@
         left: 32px
         bottom: 22px
         z-index: 200
-        transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41)
-        &.drop-move
+        &.drop-enter-active, &.drop-leave-active
           transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41)
           .inner
             width: 16px
@@ -343,7 +334,7 @@
       transform: translate3d(0, -100%, 0)
       &.fold-enter-active, &.fold-leave-active
         transition: all 0.5s
-      &.fold-enter, &.fold-leave-to
+      &.fold-enter, &.fold-leave-active
         transform: translate3d(0, 0, 0)
       .list-header
         height: 40px
@@ -399,7 +390,7 @@
     &.fade-enter-active, &.fade-leave-active
       transition: all 0.5s
       opacity: 1
-    &.fade-enter, &.fade-leave-to
+    &.fade-enter, &.fade-leave-active
       opacity: 0
       background: rgba(7, 17, 27, 0)
 
